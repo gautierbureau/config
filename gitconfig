@@ -1,0 +1,137 @@
+[user]
+  name = Gautier Bureau
+  email = gautier.bureau@gmail.com
+
+[core]
+  pager = less -FRSX
+ 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	editor = "atom --wait"
+ 	commentchar = %
+  ignorecase = false
+	gitproxy = git-proxy
+# excludesfile = ~/.gitignore
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = false
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = red
+
+[alias]
+  a = add
+  # add all changed (but not new) files to stage (index):
+  au = add -u
+
+  br = branch # -t = --track
+  bri = branch -avv # infos
+
+  ci = commit
+  cim = commit -m
+  ciam = commit --amend -m
+  # ca = commit -a  # will commit all unstaged files
+
+ # cleanall = clean -f -d  # --force et aussi les directory
+
+  co = checkout
+
+  cp = cherry-pick
+
+  d = diff
+  ds = diff --staged  # ie --cached : juste the file that will be commit
+
+  info = remote show origin
+
+ # New Branch
+  nb = checkout -b  #-t = --track ie create a remote with the same name in the config of the branch
+
+  # Track the branch by default
+  psh = push -u # --set-upstream
+  pll = pull --ff-only
+
+  # Clean remote deleted branches
+  rdb = remote prune origin
+
+  # Show Branches
+  sb = branch -a
+
+  st = status
+
+  update-master = fetch origin master:master
+  update-master-bis = fetch origin master:master-bis
+
+  #  stash
+  sp = stash pop
+  sl = stash list
+  sd = stash drop
+
+  w = whatchanged # Show logs with difference each commit introduces
+  #graph = log --graph --oneline --decorate
+
+  # number
+  # n=number
+  # na=number add
+
+  lg = log --oneline --color
+  ll = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold green)%d%Creset %s %C(green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lla = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold green)%d%Creset %s %C(green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+  lol = log --oneline --graph --decorate --color
+  llg = log --graph --decorate --pretty=short --color
+  #ll = log --graph --pretty=format:'%C(yellow)%h%C(reset) %C(bold blue)%d%C(reset)%C(white)%s%C(reset) %C(green)%an %C(bold red)%cr%C(reset)' --abbrev-commit
+  #ll5 = log --graph --pretty=format:'%C(yellow)%h%C(reset) %C(bold blue)%d%C(reset)%C(white)%s%C(reset) %C(green)%an %C(bold red)%cr%C(reset)' --abbrev-commit -5
+  #sup = submodule update
+  # lol = log --graph --pretty=format:'%C(red)%h%C(reset) %C(yellow)%d%C(reset)%s %C(green)%an %C(bold black)%cr%C(reset)' --abbrev-commit --date=relative
+
+  oops = reset --soft "HEAD^"
+  #unadd = reset HEAD
+
+	lastcommit = log -1 --stat
+
+  showchanges = difftool --dir-diff
+
+[push]
+  default=upstream
+
+[pull]
+	ff = only
+
+[difftool "meld"]
+	cmd = meld "$REMOTE" "$LOCAL" --label \"DIFF (MY ORIGINAL)\"
+	# Remote show my changes
+	# Local show the original file
+[difftool]
+  prompt = false
+[diff]
+	tool = meld
+[merge]
+	tool = meld
+[mergetool "meld"]
+	# Choose one of these 2 lines (not both!) explained below.
+	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED" --label \"MERGE (LOCAL MERGED REMOTE)\"
+	#cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+	#$LOCAL is the file in the current branch (e.g. master).
+	#$REMOTE is the file in the branch being merged (e.g. branch_name).
+	#$MERGED is the partially merged file with the merge conflict information in it.
+	#$BASE is the shared commit ancestor of $LOCAL and $REMOTE, this is to say the file as it was when the branch containing $REMOTE was originally created.
+# https://stackoverflow.com/questions/34119866/setting-up-and-using-meld-as-your-git-difftool-and-mergetool
+# https://marcin-chwedczuk.github.io/use-meld-as-git-merge-diff-tool
+
+# [branch]
+# 	autosetuprebase = always
