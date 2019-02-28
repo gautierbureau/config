@@ -54,6 +54,9 @@
 
   cp = cherry-pick
 
+  rb = rebase
+  rbi = rebase -i
+
   d = diff
   ds = diff --staged  # ie --cached : juste the file that will be commit
 
