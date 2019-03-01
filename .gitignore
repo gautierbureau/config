@@ -1,2 +1,17 @@
 .DS_Store
 */.DS_Store
+Reo/
+bash-completion/
+bashrc-functions-rte.bash
+dnf_installed.txt
+emacs
+root_hist
+root_hist_clean
+ssh-config
+zsh-completion/
+zsh_history.txt
+zsh_history_clean.txt
+zshrc-alias-rte.zsh
+zshrc-config-rte.zsh
+zshrc-functions-rte.zsh
+zshrc_old
