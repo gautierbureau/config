@@ -114,5 +114,5 @@ alias list_files_inside_package="rpm -ql"
 alias writer2latex="java -jar /usr/share/java/writer2latex.jar"
 
 if [ -f "$CONFIG_PATH/zshrc-alias-rte.zsh" ]; then
-  . $CONFIG_PATH/zshrc-config-rte.zsh
+  . $CONFIG_PATH/zshrc-alias-rte.zsh
 fi

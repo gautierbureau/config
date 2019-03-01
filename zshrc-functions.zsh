@@ -64,7 +64,6 @@ ansi()          { echo -e "\e[${1}m${*:2}\e[0m"; }
 # White: 37
 # Yellow: 33
 
-
 # exemple to use with
 # echo "some $(italic hello world) text"
 # \e[0m” sequence removes all attributes
