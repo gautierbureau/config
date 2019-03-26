@@ -1,18 +1,18 @@
 #!/bin/bash
 
-if [ -d "~/Config" ]; then
-  rm -rf ~/Config
+if [ -d "$HOME/Config" ]; then
+  rm -rf $HOME/Config
 fi
-git clone https://github.com/gautierbureau/config.git ~/Config
-if [ -f "~/.bashrc" ]; then
-  mv ~/.bashrc ~/.bashrc.old
+git clone https://github.com/gautierbureau/config.git $HOME/Config
+if [ -f "$HOME/.bashrc" ]; then
+  mv $HOME/.bashrc $HOME/.bashrc.old
 fi
-ln -s Config/bashrc ~/.bashrc
-if [ -f "~/.zshrc" ]; then
-  mv ~/.zshrc ~/.zshrc.old
+ln -s Config/bashrc $HOME/.bashrc
+if [ -f "$HOME/.zshrc" ]; then
+  mv $HOME/.zshrc $HOME/.zshrc.old
 fi
-ln -s Config/zshrc-oh-my-zsh.zsh ~/.zshrc
-if [ -f "~/.gitconfig" ]; then
-  mv ~/.gitconfig ~/.gitconfig.old
+ln -s Config/zshrc-oh-my-zsh.zsh $HOME/.zshrc
+if [ -f "$HOME/.gitconfig" ]; then
+  mv $HOME/.gitconfig $HOME/.gitconfig.old
 fi
-ln -s Config/gitconfig ~/.gitconfig
+ln -s Config/gitconfig $HOME/.gitconfig
