@@ -16,3 +16,7 @@ if [ -f "$HOME/.gitconfig" ]; then
   mv $HOME/.gitconfig $HOME/.gitconfig.old
 fi
 ln -s Config/gitconfig $HOME/.gitconfig
+if [ -f "$HOME/.vimrc" ]; then
+  mv $HOME/.vimrc $HOME/.vimrc.old
+fi
+ln -s Config/vimrc $HOME/.vimrc
