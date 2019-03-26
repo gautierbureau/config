@@ -27,18 +27,13 @@ HISTSIZE=1000000
 HISTIGNORE='ls:bg:fg'
 #HISTTIMEFORMAT='%F %T '
 
-deploy_alias_functions() {
-  ln -s ~/Config/bashrc-alias.bash ~/.bashrc-alias.bash
-  ln -s ~/Config/bashrc-functions.bash ~/.bashrc-functions.bash
-}
-
 # User specific aliases and functions
-if [ -f ~/.bashrc-alias.bash ]; then
-  . ~/.bashrc-alias
+if [ -f ~/Config/bashrc-alias.bash ]; then
+  . ~/Config/bashrc-alias.bash
 fi
 
-if [ -f ~/.bashrc-functions.bash ]; then
-  . ~/.bashrc-functions
+if [ -f ~/Config/bashrc-functions.bash ]; then
+  . ~/Config/bashrc-functions.bash
 fi
 
 if [ -f /usr/share/bash-completion/completions/git ]; then
@@ -50,4 +45,5 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
 fi
 
 # added by travis gem
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+# [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+# source /home/bureaugau/.travis/job_stages

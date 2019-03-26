@@ -6,10 +6,6 @@ see_bash_options() {
 	shopt | grep on
 }
 
-deploy_rte_functions() {
-  ln -s ~/Config/bashrc-functions-rte.bash ~/.bashrc-functions-rte.bash
-}
-
-if [ -f ~/.bashrc-functions-rte.bash ]; then
-  . ~/.bashrc-functions-rte.bash
+if [ -f ~/Config/bashrc-functions-rte.bash ]; then
+  . ~/Config/bashrc-functions-rte.bash
 fi

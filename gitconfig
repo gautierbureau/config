@@ -4,12 +4,12 @@
 
 [core]
   pager = less -FRSX
- 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	editor = "atom --wait"
- 	commentchar = %
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  editor = "atom --wait"
+  commentchar = %
   ignorecase = false
-	gitproxy = git-proxy
-# excludesfile = ~/.gitignore
+  # gitproxy = git-proxy
+  # excludesfile = ~/.gitignore
 
 [color]
   diff = auto
@@ -69,6 +69,8 @@
   psh = push -u # --set-upstream
   pll = pull --ff-only
 
+  push-fwl = push --force-with-lease
+
   # Clean remote deleted branches
   rdb = remote prune origin
 
@@ -105,7 +107,7 @@
   oops = reset --soft "HEAD^"
   #unadd = reset HEAD
 
-	lastcommit = log -1 --stat
+  lastcommit = log -1 --stat
 
   showchanges = difftool --dir-diff
 
@@ -113,28 +115,28 @@
   default=upstream
 
 [pull]
-	ff = only
+  ff = only
 
 [difftool "meld"]
-	cmd = meld "$REMOTE" "$LOCAL" --label \"DIFF (MY ORIGINAL)\"
-	# Remote show my changes
-	# Local show the original file
+  cmd = meld "$REMOTE" "$LOCAL" --label \"DIFF (MY ORIGINAL)\"
+  # Remote show my changes
+  # Local show the original file
 [difftool]
   prompt = false
 [diff]
-	tool = meld
+  tool = meld
 [merge]
-	tool = meld
+  tool = meld
 [mergetool "meld"]
-	# Choose one of these 2 lines (not both!) explained below.
-	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED" --label \"MERGE (LOCAL MERGED REMOTE)\"
-	#cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
-	#$LOCAL is the file in the current branch (e.g. master).
-	#$REMOTE is the file in the branch being merged (e.g. branch_name).
-	#$MERGED is the partially merged file with the merge conflict information in it.
-	#$BASE is the shared commit ancestor of $LOCAL and $REMOTE, this is to say the file as it was when the branch containing $REMOTE was originally created.
-# https://stackoverflow.com/questions/34119866/setting-up-and-using-meld-as-your-git-difftool-and-mergetool
-# https://marcin-chwedczuk.github.io/use-meld-as-git-merge-diff-tool
+  # Choose one of these 2 lines (not both!) explained below.
+  cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED" --label \"MERGE (LOCAL MERGED REMOTE)\"
+  #cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+  #$LOCAL is the file in the current branch (e.g. master).
+  #$REMOTE is the file in the branch being merged (e.g. branch_name).
+  #$MERGED is the partially merged file with the merge conflict information in it.
+  #$BASE is the shared commit ancestor of $LOCAL and $REMOTE, this is to say the file as it was when the branch containing $REMOTE was originally created.
+  # https://stackoverflow.com/questions/34119866/setting-up-and-using-meld-as-your-git-difftool-and-mergetool
+  # https://marcin-chwedczuk.github.io/use-meld-as-git-merge-diff-tool
 
 # [branch]
-# 	autosetuprebase = always
+# autosetuprebase = always
