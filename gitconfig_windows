@@ -1,0 +1,120 @@
+[user]
+  name = Gautier Bureau
+  email = gautier.bureau@gmail.com
+
+[core]
+  pager = less -FRSX
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
+  commentchar = %
+  ignorecase = false
+	eol = lf
+	autocrlf = input
+  # excludesfile = ~/.gitignore
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = false
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = red
+
+[alias]
+  a = add
+  # add all changed (but not new) files to stage (index):
+  au = add -u
+
+  br = branch # -t = --track
+  bri = branch -avv # infos
+
+  ci = commit
+  cim = commit -m
+  ciam = commit --amend -m
+
+  co = checkout
+
+  cp = cherry-pick
+
+  rb = rebase
+  rbi = rebase -i
+
+  d = diff
+  ds = diff --staged  # ie --cached : juste the file that will be commit
+
+  info = remote show origin
+
+  # New Branch
+  nb = checkout -b  #-t = --track ie create a remote with the same name in the config of the branch
+
+  # Track the branch by default
+  psh = push -u # --set-upstream
+  pll = pull --ff-only
+
+  push-fwl = push --force-with-lease
+
+  # Clean remote deleted branches
+  rdb = remote prune origin
+
+  # Show Branches
+  sb = branch -a
+
+  st = status
+
+  update-master = fetch origin master:master
+  update-master-bis = fetch origin master:master-bis
+
+  #  stash
+  sp = stash pop
+  sl = stash list
+  sd = stash drop
+
+  w = whatchanged # Show logs with difference each commit introduces
+  #graph = log --graph --oneline --decorate
+
+  lg = log --oneline --color
+  ll = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold green)%d%Creset %s %C(green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lla = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold green)%d%Creset %s %C(green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+  lol = log --oneline --graph --decorate --color
+  llg = log --graph --decorate --pretty=short --color
+
+  oops = reset --soft "HEAD^"
+
+  lastcommit = log -1 --stat
+
+  showchanges = difftool --dir-diff
+
+[push]
+  default=upstream
+
+[pull]
+  ff = only
+
+
+[difftool]
+  prompt = false
+[diff]
+  tool = winmerge
+[merge]
+  tool = winmerge
+
+[difftool "winmerge"]
+  cmd = "'C:/Program Files (x86)/WinMerge/WinMergeU.exe'" -u -e "$LOCAL" "$REMOTE"
+[mergetool "winmerge"]
+  cmd = "'C:/Program Files (x86)/WinMerge/WinMergeU.exe'" -u -e -dl \"Local\" -dr \"Remote\" "$LOCAL" "$MERGED" "$REMOTE"
